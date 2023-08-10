@@ -1,15 +1,14 @@
 {-# OPTIONS --without-K --exact-split --safe --no-unicode #-}
 
---https://github.com/pigworker/CS410-16/blob/master/lectures/CS410-Functor.agda
-
 module FP.Abstractions.Applicative where
 
 open import TypeTheory.Universes using (Type; 𝑢; usuc)
-open import TypeTheory.SimpleTypes using (OneL; <>; unit; id; _compose_)
+open import TypeTheory.SimpleTypes using (id)
 open import HoTT.Identity-Types using (refl; _≡_)
 open import FP.Types using (Id)
+open import FP.Abstractions.Functor using (Functor; FunctorId)
 
-record Applicative (F : Type 𝑢 -> Type 𝑢) : Type (usuc 𝑢) where
+record Applicative (F : Type 𝑢 -> Type 𝑢) {{ _ : Functor F }} : Type (usuc 𝑢) where
   field
     -- operations
     pure : forall {A : Type 𝑢} -> A -> F A
