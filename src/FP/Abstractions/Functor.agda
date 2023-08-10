@@ -3,10 +3,8 @@
 module FP.Abstractions.Functor where
 
 open import TypeTheory.Universes using (Type; 𝑢; usuc; Universe)
-open import TypeTheory.SimpleTypes using (OneL; <>; unit; id; _compose_; Nat)
-open import TypeTheory.FunctionsProperties using (compose-id; compose-compose)
+open import TypeTheory.SimpleTypes using (OneL; unit; id; _compose_)
 open import HoTT.Identity-Types using (refl; _≡_)
-open import FP.Types using (Id; Function)
 
 record Functor (F : Type 𝑢 -> Type 𝑢) : Type (usuc 𝑢) where
   field
@@ -28,18 +26,3 @@ record Functor (F : Type 𝑢 -> Type 𝑢) : Type (usuc 𝑢) where
       -> F A
       -> F OneL
   void = fmap unit
-
-instance
-  FunctorId : Functor {𝑢} Id
-  FunctorId = record
-    { fmap = id
-    ; fmap-id = refl
-    ; fmap-compose = \ f g fa -> refl (g (f fa))
-    }
-
-  FunctorFunction : {X : Type 𝑢} -> Functor {𝑢} (Function X)
-  FunctorFunction {X} = record
-    { fmap         = _compose_
-    ; fmap-id      = compose-id
-    ; fmap-compose = compose-compose
-    }
