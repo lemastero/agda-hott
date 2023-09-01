@@ -152,28 +152,29 @@ Nat-iteration P p0 f n = Nat-recursion P p0 (\ _n p -> f p) n
 
 -- function properties
 
-->-refl : {X : Type 𝑢} -> X -> X
-->-refl x = x
+id : {A : Type 𝑢} -> A -> A
+id x = x
 
-->-assoc : {X Y Z : Type 𝑢}
+->-trans : {X Y Z : Type 𝑢}
        -> (X -> Y) -> (Y -> Z) -> (X -> Z)
-->-assoc f g x = g (f x)
+->-trans f g x = g (f x)
 
-id : {A : Type 𝑢} -> (A -> A)
-id = ->-refl
-
+-- identity function is the only reflexive function
 id' : (A : Type 𝑢) -> (A -> A)
-id' A = ->-refl
+id' A = id
 
-_compose_ : {X Y Z : Type 𝑢}
+-- function composition
+_∘_ _compose_ : {X Y Z : Type 𝑢}
     -> (Y -> Z) -> (X -> Y)
     -> (X -> Z)
-(g compose f) = ->-assoc f g
+(g ∘ f) = ->-trans f g
+
+_compose_ = _∘_
 
 _andThen_ : {A B C : Type 𝑢}
     -> (A -> B) -> (B -> C)
     -> (A -> C)
-_andThen_ = ->-assoc
+_andThen_ = ->-trans
 
 const : {T U : Type 𝑢} -> T -> U -> T
 const x _ = x
