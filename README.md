@@ -1,4 +1,8 @@
-# agda-hott
+# Agda HoTT
+
+Mature library for HoTT: https://unimath.github.io/agda-unimath/
+
+Rest are my naive attempts, as I understand mathematics by writing code :)
 
 Notes in Agda about
 * [Homotopy Type Theory](https://homotopytypetheory.org/book/) (based on
