@@ -3,14 +3,8 @@
 module FP.Abstractions.Profunctor where
 
 open import TypeTheory.Universes using (Type; 𝑢; usuc; Universe)
-open import TypeTheory.SimpleTypes using (OneL; <>; unit; id; _compose_; _andThen_)
-open import TypeTheory.FunctionsProperties using (function-dimap-id; function-dimap-compose; compose3)
+open import TypeTheory.SimpleTypes using (unit; id; _compose_; _andThen_)
 open import HoTT.Identity-Types using (refl; _≡_)
-open import FP.Maybe using (Maybe; map-Maybe; maybe-map-id; maybe-map-compose)
-open import FP.Abstractions.Contravariant using (Contravariant)
-open import FP.Abstractions.Functor using (Functor)
-open import FP.Kleisli using (Kleisli)
-open import FP.Types using (Function)
 
 record Profunctor (F : Type 𝑢 -> Type 𝑢 -> Type 𝑢) : Type (usuc 𝑢) where
   field
@@ -48,10 +42,3 @@ record Profunctor (F : Type 𝑢 -> Type 𝑢 -> Type 𝑢) : Type (usuc 𝑢) w
         -> (fa : F A A)
         -> contramap id fa ≡ fa
   contramap-id = dimap-id
-
-ProfunctorFunction : Profunctor {𝑢} Function
-ProfunctorFunction = record
-  { dimap         = \ f g h -> compose3 f h g
-  ; dimap-id      = function-dimap-id
-  ; dimap-compose = function-dimap-compose
-  }
