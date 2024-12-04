@@ -1,3 +1,5 @@
+[![Scala CI](https://github.com/lemastero/agda-hott/actions/workflows/agda.yml/badge.svg?branch=main)](https://github.com/lemastero/agda-hott/actions/workflows/agda.yml?query=branch%3Amain)
+
 # Agda HoTT
 
 Mature library for HoTT: https://unimath.github.io/agda-unimath/
