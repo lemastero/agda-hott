@@ -1,31 +1,20 @@
 name: CI
 
-# when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-  # Allows manually from the Actions tab
-  workflow_dispatch:
-
 jobs:
   build:
-    # type of runner
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE
-      - uses: actions/checkout@v3
+      # Checks-out into $GITHUB_WORKSPACE
+      - uses: actions/checkout@v4
 
-      # Runs a single command
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - uses: wenkokke/setup-agda@v2
 
-      # Runs a set of commands
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - run: agda HoTT/Univalence.agda
+        working-directory: src
