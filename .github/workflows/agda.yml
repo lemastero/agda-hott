@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out into $GITHUB_WORKSPACE
+      - uses: actions/checkout@v4
+
+      - uses: wenkokke/setup-agda@v2
+
+      - run: agda TypeTheory/Dependent-Types.agda
+        working-directory: src
+      - run: agda HoTT/Univalence.agda
+        working-directory: src
+
+      - run: agda AbstractAlgebra/Group.agda
+        working-directory: src
+      - run: agda OrderTheory/Preorder.agda
+        working-directory: src
+      - run: agda CategoryTheory/Category.agda
+        working-directory: src
+
+      - run: agda FP/SimplifiedCategories/Functor.agda
+        working-directory: src
+      - run: agda FP/SimplifiedCategories/MonoidalCategory.agda
+        working-directory: src
+
+      - run: agda FP/List.agda
+        working-directory: src
+      - run: agda FP/Validated.agda
+        working-directory: src
+      - run: agda FP/zio-prelude/parametrized/Divariant.agda
+        working-directory: src
+      - run: agda FP/zio-prelude/Zio.agda
+        working-directory: src
+
+      - run: agda Logic/Hurken-paradox.agda
+        working-directory: src

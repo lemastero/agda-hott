@@ -8,7 +8,7 @@ open import TypeTheory.Sum using (_+_; bimap+)
 open import HoTT.Identity-Types using (refl; _≡_)
 open import FP.Types using (Function)
 open import TypeTheory.Product using (_×_; ×bimap; ×bimap-compose; ×bimap-id)
-open import FP.zio-prelude.ZIO using (ZIO)
+open import FP.zio-prelude.Zio using (ZIO)
 
 record Zivariant (F : Type 𝑢 -> Type 𝑢 -> Type 𝑢 -> Type 𝑢) : Type (usuc 𝑢) where
   field
