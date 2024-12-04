@@ -16,5 +16,7 @@ jobs:
 
       - uses: wenkokke/setup-agda@v2
 
-      - run: agda HoTT/Univalence.agda
+      - run: |
+          agda HoTT/Univalence.agda
+          agda FP/zio-prelude/parametrized/Zivariant.agda
         working-directory: src
