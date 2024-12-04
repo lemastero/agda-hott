@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K --exact-split --safe --no-unicode #-}
 
-module FP.zio-prelude.ZIO where
+module FP.zio-prelude.Zio where
 
 open import TypeTheory.Universes using (Type; 𝑢)
 open import TypeTheory.SimpleTypes using (id; _compose_)

@@ -15,8 +15,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: wenkokke/setup-agda@v2
+      - run: agda HoTT/Univalence.agda
+        working-directory: src
+      - run: agda FP/zio-prelude/Zio.agda
+        working-directory: src
 
       - run: |
           agda HoTT/Univalence.agda
-          agda FP/zio-prelude/parametrized/Zivariant.agda
+          agda FP/zio-prelude/Zio.agda
         working-directory: src
