@@ -8,7 +8,7 @@ open import HoTT.Identity-Types using (refl; _≡_)
 open import FP.Types using (Function)
 open import TypeTheory.FunctionsProperties using (compose-id; id-compose; compose-compose; compose-assoc)
 open import FP.Abstractions.Bifunctor using (Bifunctor; BifunctorProduct; BifunctorEither; BifunctorThese)
-open import FP.SimplifiedCategories.Category using (Category; CategoryFunction)
+open import FP.SimplifiedCategories.Category using (Category)
 open import TypeTheory.Product using (_×_; ×assocLR; ×assocRL
   ; ×left-id; ×id-left; ×right-id; ×id-right; ×bimap)
 open import TypeTheory.Sum using (_+_; +right-id; +left-id; +id-right; +id-left
