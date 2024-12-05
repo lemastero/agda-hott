@@ -2,10 +2,6 @@
 
 # Agda HoTT
 
-Mature library for HoTT: https://unimath.github.io/agda-unimath/
-
-Rest are my naive attempts, as I understand mathematics by writing code :)
-
 Notes in Agda about
 * [Homotopy Type Theory](https://homotopytypetheory.org/book/) (based on
   * [Introduction to Univalent Foundations of Mathematics with Agda](https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/) by Martín Hötzel Escardó, ([arxiv 1911.00580](https://arxiv.org/abs/1911.00580)),
@@ -16,10 +12,22 @@ Notes in Agda about
 * [Category Theory](https://ncatlab.org/nlab/show/category+theory) (based on
   * CS410 Advanced Functional Programming at the University of Strathclyde by Conor McBride ([videos](https://www.youtube.com/playlist?list=PLqggUNm8QSqmeTg5n37oxBif-PInUfTJ2)), ([GH repo with code](https://github.com/pigworker/CS410-17)), ([lecture notes](https://github.com/pigworker/CS410-15/blob/master/CS410-notes.pdf)), ([GH 2018](https://github.com/pigworker/CS410-18)),
   * [agda-categories](https://github.com/agda/agda-categories))
-* Patterns of Functional Programming (inspired by category theory that can be found in Haskell, Scala, PureScript, Idris)
+* Functional Programming (abstractions from category theory used in Haskell, Scala, PureScript, Idris)
 
-Patters of FP can be seen as continuation of [scala_typeclassopedia](https://github.com/lemastero/scala_typeclassopedia) - this time in Agda).
+Abstractions in FP can be seen as continuation of [scala_typeclassopedia](https://github.com/lemastero/scala_typeclassopedia) - this time in Agda :)
 
-Section zio-prelude aims at formally verifying encoding from Scala library [zio-prelude](https://zio.dev/zio-prelude/) (that improve usuall encoding of FP abstractions e.g. by adding Zivariant, introducing novel definitions like ZRerf that is a generalization of optics).
+[src/FP/zio-prelude](src/FP/zio-prelude) aims at formally verifying encoding from Scala library [zio-prelude](https://zio.dev/zio-prelude/) (that improve usual encoding of FP abstractions e.g. by adding Zivariant, introducing novel definitions like ZRerf that is a generalization of optics).
 
 Category theory definitions are strict - use equality (agda-categories are parametrized by equivalence relation).
+
+## Getting Agda
+
+[Official install instructions](https://agda.readthedocs.io/en/latest/getting-started/installation.html)
+
+### for Nix
+
+If you are nix user you can get shell with recent Agda by running:
+
+```sh
+nix develop
+```

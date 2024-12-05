@@ -1,2 +1,7 @@
 *.agdai
 MAlonzo/**
+
+flake.lock
+
+.idea/
+*.iml
